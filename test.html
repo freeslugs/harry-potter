@@ -1,0 +1,47 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" />
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+
+</head>
+<body>
+
+<div class="ui container">
+  <h1>SEARCH EMAIL SUBJECTS!</h1>
+
+  <div class="ui form">
+    <div class="field">
+      <label>Query text</label>
+      <input type="text" id="query">
+    </div>
+    <div class="ui submit button" id="submit">Submit</div>
+
+  </div>
+
+  <div id="label-wrapper"><a class="ui red circular label" id="label"></a> Results!</div>
+
+
+  <script type="text/javascript">
+    $("#label-wrapper").hide();
+    $("#submit").click(function(argument) {
+      var query = $("#query").val()
+      $.get("https://nyvnlypptl.localtunnel.me/?q=" + query).then(function (data) {
+        $("#label-wrapper").show();
+        $("#label").text(data);
+      })
+    
+    })
+  
+  </script>
+
+</body>
+
+</html>
+
